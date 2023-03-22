@@ -91,8 +91,8 @@ data class CharacterDetails(
     val location: Location,
     val origin: Origin,
     val episode: ArrayList<String>,
-
 )
+
 data class Origin(
     val name: String,
     val url: String
