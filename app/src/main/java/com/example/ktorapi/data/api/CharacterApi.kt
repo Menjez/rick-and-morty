@@ -15,11 +15,11 @@ class CharacterApi private constructor(private val client: HttpClient) {
     private val base = "https://rickandmortyapi.com/api/"
 
     suspend fun getCharacter(): CharactersResponse {
-        return client.get<CharactersResponse>(base.plus("character"))
+        return client.get(base.plus("character"))
     }
 
     suspend fun getCharacterDetails(id: Int) : CharacterDto {
-        return client.get<CharacterDto>(base.plus("character/$id"))
+        return client.get(base.plus("character/$id"))
     }
 }
 

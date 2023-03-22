@@ -24,5 +24,4 @@ class CharacterRepositoryImpl: CharacterRepository {
         val charDetails = api.getCharacterDetails(id)
         return charDetails.detailsDomain()
     }
-
 }
