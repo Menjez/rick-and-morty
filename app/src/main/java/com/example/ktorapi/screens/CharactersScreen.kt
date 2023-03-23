@@ -105,8 +105,8 @@ fun PagerContent(
                     HorizontalPagerIndicator(
                         pagerState = pagerState,
                         modifier = Modifier
-                            .align(Alignment.TopCenter)
-                            .padding(vertical = 48.dp),
+                            .align(Alignment.BottomCenter)
+                            .padding(vertical = 32.dp),
                         activeColor = Color.White
                     )
                 }
