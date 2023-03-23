@@ -10,7 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.ktorapi.navigation.Navigation
+import com.example.ktorapi.ui.navigation.Navigation
 import com.example.ktorapi.ui.theme.KtorAPITheme
 
 class MainActivity : ComponentActivity() {

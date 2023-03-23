@@ -1,13 +1,13 @@
 package com.example.ktorapi.data.repo
 
-import com.example.ktorapi.data.api.CharacterApi
-import com.example.ktorapi.data.dtos.Character
-import com.example.ktorapi.data.dtos.CharacterDetails
+import com.example.ktorapi.data.remote.api.CharacterApi
+import com.example.ktorapi.domain.models.CharacterDetails
 
 interface CharacterRepository{
-    suspend fun getCharacter(): List<Character>
 
-    suspend fun getCharacterDetails(id: Int): CharacterDetails
+    suspend fun getCharacters(): List<CharacterDetails>
+
+    suspend fun getCharacter(id: Int): CharacterDetails
 
 }
 
@@ -15,13 +15,13 @@ class CharacterRepositoryImpl: CharacterRepository {
 
     private val api = CharacterApi.getInstance()
 
-    override suspend fun getCharacter(): List<Character> {
-        val list = api.getCharacter().results
+    override suspend fun getCharacters(): List<CharacterDetails> {
+        val list = api.getCharacters().results
         return list.map { it.toDomain() }
     }
 
-    override suspend fun getCharacterDetails(id: Int): CharacterDetails {
-        val charDetails = api.getCharacterDetails(id)
-        return charDetails.detailsDomain()
+    override suspend fun getCharacter(id: Int): CharacterDetails {
+        val charDetails = api.getCharacter(id)
+        return charDetails.toDomain()
     }
 }

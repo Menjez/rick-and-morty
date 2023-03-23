@@ -1,4 +1,4 @@
-package com.example.ktorapi.data
+package com.example.ktorapi.data.remote.api
 
 import android.util.Log
 import io.ktor.client.*

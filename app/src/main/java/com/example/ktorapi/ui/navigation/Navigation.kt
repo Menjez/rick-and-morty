@@ -1,4 +1,4 @@
-package com.example.ktorapi.navigation
+package com.example.ktorapi.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -7,8 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.ktorapi.screens.DetailsScreen
-import com.example.ktorapi.screens.PagerContent
+import com.example.ktorapi.ui.screens.details.CharacterScreen
+import com.example.ktorapi.ui.screens.characters.CharactersScreen
 
 
 @Composable
@@ -19,14 +19,14 @@ fun Navigation(block: (Boolean) -> Unit) {
 
     NavHost(
         navController = navController,
-        startDestination = Routes.Character.route
+        startDestination = Routes.Characters.route
     ) {
-        composable(route = Routes.Character.route) {
-            PagerContent(navController = navController)
+        composable(route = Routes.Characters.route) {
+            CharactersScreen(navController = navController)
         }
 
         composable(
-            route = Routes.Details.route.plus("?id={id}"),
+            route = Routes.Character.route.plus("?id={id}"),
             arguments = listOf(
                 navArgument("id") {
                     type = NavType.StringType
@@ -34,7 +34,7 @@ fun Navigation(block: (Boolean) -> Unit) {
                 }
             )
         ) {
-            DetailsScreen(navController = navController)
+            CharacterScreen(navController = navController)
         }
     }
 }
